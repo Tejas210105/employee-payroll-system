@@ -1,0 +1,21 @@
+###
+POST http://localhost:8080/employees/add
+Content-Type: application/json
+
+{
+ "name": "Madhu",
+ "department": "IT",
+ "baseSalary": 50000
+}
+
+### 
+GET http://localhost:8080/employees/salary/1
+
+###
+GET http://localhost:8080/employees/all
+
+###
+GET http://localhost:8080/employees/department/IT
+
+###
+GET http://localhost:8080/employees/payroll-summary

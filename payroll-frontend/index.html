@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Employee Payroll System</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="dashboard">
+<header class="header">
+<h1>Employee Payroll System</h1>
+</header>
+
+<main class="main-content">
+<div class="card form-container">
+<h2>Add Employee</h2>
+<div class="form-group">
+<input id="name" type="text" placeholder="Name" required>
+</div>
+<div class="form-group">
+<input id="department" type="text" placeholder="Department" required>
+</div>
+<div class="form-group">
+<input id="salary" type="number" placeholder="Base Salary" required>
+</div>
+<button class="btn btn-primary" onclick="addEmployee()">Add Employee</button>
+</div>
+
+<div class="card list-container">
+<h2>Employees</h2>
+<button class="btn btn-secondary" onclick="loadEmployees()">Load Employees</button>
+<div class="table-container">
+<table id="employeeTable">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Department</th>
+<th>Salary</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+</div>
+
+<div class="card summary-container">
+<h2>Payroll Summary</h2>
+<button class="btn btn-secondary" onclick="loadSummary()">Show Summary</button>
+<div id="summary" class="summary-text"></div>
+</div>
+</main>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
