@@ -22,4 +22,6 @@ public class Employee {
 
     private double baseSalary;
 
+    private double bonus;
+
 }

@@ -5,6 +5,8 @@ import com.payroll.repository.EmployeeRepository;
 import com.payroll.service.SalaryService;
 import com.payroll.dto.SalaryResponseDTO;
 import com.payroll.dto.PayrollSummaryDTO;
+import com.payroll.dto.BonusRequestDTO;
+import com.payroll.dto.BonusResponseDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -40,6 +42,11 @@ return salaryService.getAllEmployees();
 @GetMapping("/payroll-summary")
 public PayrollSummaryDTO payrollSummary(){
 return salaryService.getPayrollSummary();
+}
+
+@PostMapping("/calculate-bonus")
+public BonusResponseDTO calculateBonus(@RequestBody BonusRequestDTO request) {
+    return salaryService.calculateBonus(request);
 }
 
 }

@@ -13,6 +13,7 @@ public class SalaryResponseDTO {
     private Long employeeId;
     private String name;
     private double baseSalary;
+    private double bonus;
     private double calculatedSalary;
 
 }
