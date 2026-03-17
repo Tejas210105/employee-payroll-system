@@ -1,0 +1,42 @@
+###
+POST http://localhost:8080/employees/add
+Content-Type: application/json
+
+{
+ "name": "Madhu",
+ "department": "IT",
+ "baseSalary": 50000,
+ "bonus": 5000
+}
+
+### 
+GET http://localhost:8080/employees/salary/1
+
+###
+GET http://localhost:8080/employees/all
+
+###
+GET http://localhost:8080/employees/department/IT
+
+###
+GET http://localhost:8080/employees/payroll-summary
+
+###
+POST http://localhost:8080/employees/calculate-bonus
+Content-Type: application/json
+
+{
+  "baseSalary": 50000.0,
+  "bonusType": "percentage",
+  "multiplier": 10.0
+}
+
+###
+POST http://localhost:8080/employees/calculate-bonus
+Content-Type: application/json
+
+{
+  "baseSalary": 50000.0,
+  "bonusType": "fixed",
+  "multiplier": 10.0
+}

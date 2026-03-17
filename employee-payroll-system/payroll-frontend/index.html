@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Employee Payroll System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Payroll</h2>
+                <button class="sidebar-close" id="sidebarClose">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item" data-section="employees">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Employees
+                </a>
+                <a href="#" class="nav-item" data-section="summary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M9 19v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2zm0 0V9a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v10m-6 0a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2m0 0V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z">
+                        </path>
+                    </svg>
+                    Summary
+                </a>
+                <a href="#" class="nav-item" data-section="bonus-calculator">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    </svg>
+                    Bonus Calculator
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <button class="menu-toggle" id="menuToggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18"></path>
+                    </svg>
+                </button>
+                <h1>Dashboard</h1>
+                <div class="header-actions">
+                    <div class="user-profile">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <section class="section dashboard-section active" id="dashboard">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Total Employees</h3>
+                                <p id="totalEmployees">--</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Total Payroll</h3>
+                                <p id="totalPayroll">--</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M22 2l-1 1"></path>
+                                    <path d="M22 8l-1-1"></path>
+                                    <path d="M16 2l1 1"></path>
+                                    <path d="M16 8l1-1"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Average Salary</h3>
+                                <p id="averageSalary">--</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <h2>Quick Actions</h2>
+                        <div class="action-buttons">
+                            <button class="action-btn" data-section="employees">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 5v14M5 12h14"></path>
+                                </svg>
+                                Add Employee
+                            </button>
+                            <button class="action-btn" onclick="loadEmployees()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                                    </path>
+                                </svg>
+                                Refresh Data
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section employees-section" id="employees">
+                    <div class="section-header">
+                        <h2>Employee Management</h2>
+                    </div>
+
+                    <div class="card form-container">
+                        <div class="card-header">
+                            <h3>Add New Employee</h3>
+                        </div>
+                        <form class="employee-form" onsubmit="addEmployee(event)">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input id="name" type="text" placeholder="Enter full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="department">Department</label>
+                                    <input id="department" type="text" placeholder="Enter department" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="salary">Base Salary</label>
+                                    <input id="salary" type="number" placeholder="0.00" step="0.01" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bonus">Bonus</label>
+                                    <input id="bonus" type="number" placeholder="0.00" step="0.01" required>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M12 5v14M5 12h14"></path>
+                                    </svg>
+                                    Add Employee
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="card list-container">
+                        <div class="card-header">
+                            <h3>Employee List</h3>
+                            <button class="btn btn-secondary" onclick="loadEmployees()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                                    </path>
+                                </svg>
+                                Refresh
+                            </button>
+                        </div>
+                        <div class="table-container">
+                            <table id="employeeTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Department</th>
+                                        <th>Base Salary</th>
+                                        <th>Bonus</th>
+                                        <th>Total Salary</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section summary-section" id="summary">
+                    <div class="section-header">
+                        <h2>Payroll Summary</h2>
+                    </div>
+
+                    <div class="summary-grid">
+                        <div class="summary-card">
+                            <div class="summary-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path
+                                        d="M9 19v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2zm0 0V9a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v10m-6 0a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2m0 0V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Detailed Summary</h3>
+                                <div id="detailedSummary" class="summary-details">
+                                    <p>Loading summary...</p>
+                                </div>
+                                <button class="btn btn-primary" onclick="loadSummary()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                                        </path>
+                                    </svg>
+                                    Load Summary
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section bonus-section" id="bonus-calculator">
+                    <div class="section-header">
+                        <h2>Bonus Calculator</h2>
+                    </div>
+
+                    <div class="bonus-calculator-grid">
+                        <div class="card bonus-form-container">
+                            <div class="card-header">
+                                <h3>Calculate Bonus</h3>
+                            </div>
+                            <form class="bonus-form" onsubmit="calculateBonus(event)">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="baseSalary">Base Salary</label>
+                                        <input id="baseSalary" type="number" placeholder="50000.00" step="0.01" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bonusType">Bonus Type</label>
+                                        <select id="bonusType" required>
+                                            <option value="">Select bonus type</option>
+                                            <option value="percentage">Percentage</option>
+                                            <option value="fixed">Fixed Amount</option>
+                                            <option value="tiered">Tiered</option>
+                                            <option value="performance">Performance</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="multiplier">Multiplier/Value</label>
+                                        <input id="multiplier" type="number" placeholder="10.0" step="0.01" required>
+                                        <small class="form-help">
+                                            <span id="multiplierHelp">Enter percentage (10), fixed amount (5000), or performance score (85)</span>
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                        </svg>
+                                        Calculate Bonus
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" onclick="clearBonusForm()">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                        </svg>
+                                        Clear
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="card bonus-result-container">
+                            <div class="card-header">
+                                <h3>Calculation Result</h3>
+                            </div>
+                            <div id="bonusResult" class="bonus-result">
+                                <div class="result-placeholder">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                        <path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                    </svg>
+                                    <p>Enter values and click "Calculate Bonus" to see results</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bonus-examples">
+                        <h3>Bonus Type Examples</h3>
+                        <div class="examples-grid">
+                            <div class="example-card">
+                                <h4>Percentage</h4>
+                                <p>Base: $50,000 | Multiplier: 10</p>
+                                <p>Bonus: $5,000 (10%)</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>Fixed Amount</h4>
+                                <p>Base: $50,000 | Multiplier: 5000</p>
+                                <p>Bonus: $5,000</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>Tiered</h4>
+                                <p>Base: $75,000 | Multiplier: ignored</p>
+                                <p>Bonus: $7,500 (10% tier)</p>
+                            </div>
+                            <div class="example-card">
+                                <h4>Performance</h4>
+                                <p>Base: $50,000 | Multiplier: 85</p>
+                                <p>Bonus: $425 (0.85% score)</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
